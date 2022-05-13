@@ -22,26 +22,38 @@ public class Trainer {
 	/**
 	 * 
 	 */
-	private Training trainings;
+	public List<Training> trainings = new ArrayList<>();
 	/**
 	 * 
 	 */
-	public Training[] training;
 
 	public Trainer() {
+	}
+
+	public Trainer(String trainerName, String phone, String email){
+		this.trainerName = trainerName;
+		this.phone = phone;
+		this.email = email;
 	}
 
 	/**
 	 * 
 	 */
 	public void contactInfo() {
+		System.out.println("Numele trainerului: " + this.trainerName + ", telefon: " + this.phone + ", adresa mail: " + this.email);
 	}
 
 	/**
 	 * 
 	 * @param date 
 	 */
-	public void checkAvalability(String date) {
+	public boolean checkAvalability(String date) {
+		for(int i = 0; i < trainings.size(); i++){
+			if(trainings.get(i).getEventDate().equalsIgnoreCase(date)){
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**
@@ -49,12 +61,16 @@ public class Trainer {
 	 * @param chapters 
 	 * @param trainingType 
 	 */
-	public void addMaterials(List<String> chapters, TrainingType trainingType) {
+	public void addMaterials(List<String> chapters, String chapter) {
+		chapters.add(chapter);
 	}
 
 	/**
 	 * 
 	 */
 	public void checkSchedule() {
+		for(int i = 0; i < trainings.size();i++){
+			System.out.println(trainings.get(i).getEventDate());
+		}
 	}
 }
