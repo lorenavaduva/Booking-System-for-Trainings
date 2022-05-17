@@ -23,7 +23,7 @@ public class Client{
 	/**
 	 * 
 	 */
-	//private Training trainingEvent = new Training();
+	private Training trainingEvent = new Training();
 	/**
 	 * 
 	 */
@@ -32,14 +32,29 @@ public class Client{
 	/**
 	 * 
 	 */
+	Client(){}
+	Client(String clientName, String phone, String email){
+		this.clientName = clientName;
+		this.phone = phone;
+		this.email = email;
+	}
+
 	public void contactInfo() {
+		System.out.println("Nume: " + this.clientName);
+		System.out.println("Phone: " + this.phone);
+		System.out.println("Email: " + this.email);
 	}
 
 	/**
 	 * 
 	 * @param training 
 	 */
-	public void cancelTraining(Training training) {
+	public void cancelTraining(Manager manager, String eventName, String date) {
+		for(int i = 0; i < this.trainings.size(); i++){
+			if(this.trainings.get(i).getEventName().equals(eventName) && this.trainings.get(i).getEventDate().equals(date)){
+				//Am pus un obiect de tip manager pentru a putea elimina si din lista managerului 
+			}
+		}
 	}
 
 	/**
@@ -48,6 +63,7 @@ public class Client{
 	 * @param trainingDate 
 	 */
 	public void requestTraining(TrainingType trainingType, String trainingDate) {
+
 	}
 
 	/**
