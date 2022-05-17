@@ -31,7 +31,7 @@ public class Training {
 	/**
 	 * 
 	 */
-	private List<String> chapters = new ArrayList<>();
+	public List<String> chapters = new ArrayList<>();
 	/**
 	 * 
 	 */
@@ -68,6 +68,7 @@ public class Training {
 		this.eventDate = date;
 		this.eventLocation = location;
 	}
+
 	TrainingType getEventType(){
 		return eventType;
 	}
@@ -101,7 +102,6 @@ public class Training {
 	void setEventType(TrainingType eventType){
 		this.eventType = eventType;
 	}
-
 	void insertChapter(String chapter){
 		this.chapters.add(chapter);
 	}

@@ -26,14 +26,16 @@ public class Trainer {
 	/**
 	 * 
 	 */
+	private List<TrainingType> qualifications = new ArrayList<>();
 
 	public Trainer() {
 	}
 
-	public Trainer(String trainerName, String phone, String email){
+	public Trainer(String trainerName, String phone, String email, List<TrainingType> qualifications){
 		this.trainerName = trainerName;
 		this.phone = phone;
 		this.email = email;
+		this.qualifications = qualifications;
 	}
 
 	/**
@@ -61,8 +63,12 @@ public class Trainer {
 	 * @param chapters 
 	 * @param trainingType 
 	 */
-	public void addMaterials(List<String> chapters, String chapter) {
-		chapters.add(chapter);
+	public void addMaterials(String eventName, String chapter) {
+		for(int i = 0; i < this.trainings.size(); i++){
+			if(this.trainings.get(i).getEventName().equalsIgnoreCase(eventName)){
+				this.trainings.get(i).insertChapter(chapter);
+			}
+		}
 	}
 
 	/**
