@@ -7,32 +7,17 @@
  * 
  */
 import java.util.*;
+
 public class Client{
-	/**
-	 * 
-	 */
+
 	private String clientName;
-	/**
-	 * 
-	 */
 	private String phone;
-	/**
-	 * 
-	 */
 	private String email;
-	/**
-	 * 
-	 */
 	private Training trainingEvent = new Training();
-	/**
-	 * 
-	 */
 	public List<Training> trainings = new ArrayList<>();
 
-	/**
-	 * 
-	 */
 	Client(){}
+
 	Client(String clientName, String phone, String email){
 		this.clientName = clientName;
 		this.phone = phone;
@@ -40,36 +25,37 @@ public class Client{
 	}
 
 	public void contactInfo() {
-		System.out.println("Nume: " + this.clientName);
+		System.out.println("Name: " + this.clientName);
 		System.out.println("Phone: " + this.phone);
 		System.out.println("Email: " + this.email);
 	}
 
-	/**
-	 * 
-	 * @param training 
-	 */
+
 	public void cancelTraining(Manager manager, String eventName, String date) {
-		for(int i = 0; i < this.trainings.size(); i++){
-			if(this.trainings.get(i).getEventName().equals(eventName) && this.trainings.get(i).getEventDate().equals(date)){
-				//Am pus un obiect de tip manager pentru a putea elimina si din lista managerului 
+		for (Training training : this.trainings) {
+			//if the training exists, request the manager to execute the cancellation
+			if (training.getEventName().equals(eventName) && training.getEventDate().equals(date)) {
+				//Am pus un obiect de tip manager pentru a putea elimina si din lista managerului
+				manager.cancelTraining(training);
+			} else {
+				System.out.println("Could not cancel the training, as it doesn't exist. Please check the introduced training data.\n");
 			}
 		}
 	}
 
-	/**
-	 * 
-	 * @param trainingType 
-	 * @param trainingDate 
-	 */
-	public void requestTraining(TrainingType trainingType, String trainingDate) {
+
+	public void requestTraining( Manager manager,TrainingType trainingType, String trainingDate, String eventLocation, String eventName) {
+		for (Trainer trainer : manager.trainers) {
+			if(trainer.checkAvailability(trainingDate)){
+				Training requestedTraining = new Training(this.clientName,trainer.getName(),eventName,eventLocation,trainingDate,trainingType);
+
+				this.trainings.add(requestedTraining);
+				manager.assignTrainer(trainer, requestedTraining);
+			}
+		}
 
 	}
 
-	/**
-	 * 
-	 * @param trainingName 
-	 */
 	public void changeTrainingDetails(Training trainingName) {
 	}
 }

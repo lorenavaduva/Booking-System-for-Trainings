@@ -8,38 +8,14 @@
 import java.util.*;
 
 public class Training {
-	/**
-	 * 
-	 */
-	private String clientName;
-	/**
-	 * 
-	 */
-	private String eventName;
-	/**
-	 * 
-	 */
-	private String eventLocation;
-	/**
-	 * 
-	 */
-	private String eventDate;
-	/**
-	 * 
-	 */
-	private TrainingType eventType;
-	/**
-	 * 
-	 */
-	public List<String> chapters = new ArrayList<>();
-	/**
-	 * 
-	 */
-	private String trainerName;
 
-	/**
-	 * 
-	 */
+	private String clientName;
+	private String eventName;
+	private String eventLocation;
+	private String eventDate;
+	private TrainingType eventType;
+	public List<String> chapters = new ArrayList<>(); //TODO mi se pare ca ar merge scoasa asta, ne complicam degeaba
+	private String trainerName;
 
 	Training(){
 
@@ -59,11 +35,7 @@ public class Training {
 		System.out.println("La data de: " + this.eventDate + " locatia: " + this.eventLocation);
 	}
 
-	/**
-	 * 
-	 * @param date 
-	 * @param location 
-	 */
+
 	public void modifyTrainingDetails(String date, String location) {
 		this.eventDate = date;
 		this.eventLocation = location;
@@ -84,6 +56,7 @@ public class Training {
 	String getEventDate(){
 		return this.eventDate;
 	}
+	String getTrainer(){return this.trainerName;}
 	List<String> getChapters(){
 		return this.chapters;
 	}

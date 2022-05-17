@@ -6,6 +6,6 @@ public class App {
         System.out.println();
         t.trainingDetails();
         Trainer tr = new Trainer();
-        System.out.println(tr.checkAvalability("15.02"));
+        System.out.println(tr.checkAvailability("15.02"));
     }
 }

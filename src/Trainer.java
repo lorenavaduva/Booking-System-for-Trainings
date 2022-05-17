@@ -7,25 +7,11 @@
  */
 import java.util.*;
 public class Trainer {
-	/**
-	 * 
-	 */
+
 	private String trainerName;
-	/**
-	 * 
-	 */
 	private String phone;
-	/**
-	 * 
-	 */
 	private String email;
-	/**
-	 * 
-	 */
 	public List<Training> trainings = new ArrayList<>();
-	/**
-	 * 
-	 */
 	private List<TrainingType> qualifications = new ArrayList<>();
 
 	public Trainer() {
@@ -38,45 +24,33 @@ public class Trainer {
 		this.qualifications = qualifications;
 	}
 
-	/**
-	 * 
-	 */
+	String getName(){
+		return this.trainerName;
+	}
+
 	public void contactInfo() {
 		System.out.println("Numele trainerului: " + this.trainerName + ", telefon: " + this.phone + ", adresa mail: " + this.email);
 	}
-
-	/**
-	 * 
-	 * @param date 
-	 */
-	public boolean checkAvalability(String date) {
-		for(int i = 0; i < trainings.size(); i++){
-			if(trainings.get(i).getEventDate().equalsIgnoreCase(date)){
+	public boolean checkAvailability(String date) {
+		for (Training training : trainings) {
+			if (training.getEventDate().equalsIgnoreCase(date)) {
 				return false;
 			}
 		}
 		return true;
 	}
 
-	/**
-	 * 
-	 * @param chapters 
-	 * @param trainingType 
-	 */
 	public void addMaterials(String eventName, String chapter) {
-		for(int i = 0; i < this.trainings.size(); i++){
-			if(this.trainings.get(i).getEventName().equalsIgnoreCase(eventName)){
-				this.trainings.get(i).insertChapter(chapter);
+		for (Training training : this.trainings) {
+			if (training.getEventName().equalsIgnoreCase(eventName)) {
+				training.insertChapter(chapter);
 			}
 		}
 	}
 
-	/**
-	 * 
-	 */
 	public void checkSchedule() {
-		for(int i = 0; i < trainings.size();i++){
-			System.out.println(trainings.get(i).getEventDate());
+		for (Training training : trainings) {
+			System.out.println(training.getEventDate());
 		}
 	}
 }

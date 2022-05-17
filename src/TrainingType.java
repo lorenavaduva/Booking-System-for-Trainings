@@ -7,40 +7,14 @@
  * 
  */
 public enum TrainingType {
-	/**
-	 * 
-	 */
+
 	PublicSpeaking,
-	/**
-	 * 
-	 */
 	WebDevelopment,
-	/**
-	 * 
-	 */
 	DataScience,
-	/**
-	 * 
-	 */
 	DataTransfer,
-	/**
-	 * 
-	 */
 	MachineLearning,
-	/**
-	 * 
-	 */
 	WorkPlaceEthics,
-	/**
-	 * 
-	 */
 	QualityAssurance,
-	/**
-	 * 
-	 */
 	Leadership,
-	/**
-	 * 
-	 */
 	Sales;
 }
