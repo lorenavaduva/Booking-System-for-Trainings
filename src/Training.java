@@ -75,6 +75,7 @@ public class Training {
 	void setEventType(TrainingType eventType){
 		this.eventType = eventType;
 	}
+	void setTrainerName(String trainerName){this.trainerName = trainerName;}
 	void insertChapter(String chapter){
 		this.chapters.add(chapter);
 	}

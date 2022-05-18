@@ -53,4 +53,11 @@ public class Trainer {
 			System.out.println(training.getEventDate());
 		}
 	}
+
+	public boolean checkQualification(TrainingType trainingType){
+		for(TrainingType type : this.qualifications){
+			if(type == trainingType) return true;
+		}
+		return false;
+	}
 }

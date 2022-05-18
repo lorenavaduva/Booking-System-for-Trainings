@@ -24,6 +24,10 @@ public class Client{
 		this.email = email;
 	}
 
+	String getClientName(){
+		return this.clientName;
+	}
+
 	public void contactInfo() {
 		System.out.println("Name: " + this.clientName);
 		System.out.println("Phone: " + this.phone);
@@ -37,6 +41,7 @@ public class Client{
 			if (training.getEventName().equals(eventName) && training.getEventDate().equals(date)) {
 				//Am pus un obiect de tip manager pentru a putea elimina si din lista managerului
 				manager.cancelTraining(training);
+				this.trainings.remove(training);
 			} else {
 				System.out.println("Could not cancel the training, as it doesn't exist. Please check the introduced training data.\n");
 			}
@@ -45,15 +50,12 @@ public class Client{
 
 
 	public void requestTraining( Manager manager,TrainingType trainingType, String trainingDate, String eventLocation, String eventName) {
-		for (Trainer trainer : manager.trainers) {
-			if(trainer.checkAvailability(trainingDate)){
-				Training requestedTraining = new Training(this.clientName,trainer.getName(),eventName,eventLocation,trainingDate,trainingType);
+		Training requestedTraining = new Training(this.clientName, "", eventName, eventLocation,trainingDate, trainingType);
+		manager.assignTrainer(requestedTraining);
+	}
 
-				this.trainings.add(requestedTraining);
-				manager.assignTrainer(trainer, requestedTraining);
-			}
-		}
-
+	public void addTraining(Training training){
+		this.trainings.add(training);
 	}
 
 	public void changeTrainingDetails(Training trainingName) {
