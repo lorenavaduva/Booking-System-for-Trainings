@@ -12,18 +12,40 @@ public class Manager {
 	public List<Trainer> trainers = new ArrayList<>();
 	public List<Client> clients = new ArrayList<>();
 
-	public void contactInfo() {
-		System.out.println("-------Manager contact info-------\n");
-		System.out.println("Name: "+ managerName+"\n");
-		System.out.println("Email: "+ email+"\n");
-		System.out.println("Phone: "+ phone+"\n");
+	Manager(){}
 
-	}
-
-	Manager(String managerName, String email, String phone){
+	public Manager(String managerName, String email, String phone){
         this.managerName = managerName;
 		this.email = email;
 		this.phone = phone;
+	}
+
+	public String getManagerName() {
+		return managerName;
+	}
+
+	public void setManagerName(String managerName) {
+		this.managerName = managerName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public List<Training> getTrainingList() {
+		return trainingList;
 	}
 
 	public void addTrainer(Trainer trainer){
@@ -34,10 +56,13 @@ public class Manager {
 		clients.add(client);
 	}
 
-	Manager(){
+	public void contactInfo() {
+		System.out.println("-------Manager contact info-------\n");
+		System.out.println("Name: "+ managerName+"\n");
+		System.out.println("Email: "+ email+"\n");
+		System.out.println("Phone: "+ phone+"\n");
 
 	}
-
 	public void assignTrainer(Training training) {
 		//when assigning trainer you have to take into consideration the list of trainers already in the object manager
 		//and the training the client specified
@@ -53,7 +78,7 @@ public class Manager {
 				training.getEventType() == TrainingType.WorkPlaceEthics)){
 			for(Trainer trainer : this.trainers){
 				if(trainer.checkAvailability(training.getEventDate()) && trainer.checkQualification(training.getEventType())){
-					training.setTrainerName(trainer.getName());
+					training.setTrainerName(trainer.getTrainerName());
 					trainingList.add(training);
 					for(Client client: this.clients){
 						if(client.getClientName().equals(training.getClientName())){
@@ -74,7 +99,7 @@ public class Manager {
 	public void cancelTraining(Training training) {
 		//remove training from the assigned trainer's list
 		trainers.forEach((trainer) ->{
-			if(Objects.equals(trainer.getName(), training.getTrainer())){
+			if(Objects.equals(trainer.getTrainerName(), training.getTrainer())){
 				trainer.trainings.remove(training);
 			}
 		});

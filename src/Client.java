@@ -24,8 +24,36 @@ public class Client{
 		this.email = email;
 	}
 
-	String getClientName(){
+	public String getClientName(){
 		return this.clientName;
+	}
+
+	public void setClientName(String clientName) {
+		this.clientName = clientName;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Training getTrainingEvent() {
+		return trainingEvent;
+	}
+
+	public void setTrainingEvent(Training trainingEvent) {
+		this.trainingEvent = trainingEvent;
 	}
 
 	public void contactInfo() {

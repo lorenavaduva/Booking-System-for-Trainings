@@ -24,12 +24,50 @@ public class Trainer {
 		this.qualifications = qualifications;
 	}
 
-	String getName(){
-		return this.trainerName;
+	public String getTrainerName() {
+		return trainerName;
+	}
+
+	public void setTrainerName(String trainerName) {
+		this.trainerName = trainerName;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public List<Training> getTrainings() {
+		return trainings;
+	}
+
+	public void setTrainings(List<Training> trainings) {
+		this.trainings = trainings;
+	}
+
+	public List<TrainingType> getQualifications() {
+		return qualifications;
+	}
+
+	public void setQualifications(List<TrainingType> qualifications) {
+		this.qualifications = qualifications;
 	}
 
 	public void contactInfo() {
-		System.out.println("Numele trainerului: " + this.trainerName + ", telefon: " + this.phone + ", adresa mail: " + this.email);
+		System.out.println("Numele trainer: " + this.trainerName);
+		System.out.println("Telefon: " + this.phone);
+		System.out.println("Adresa email: " + this.email);
 	}
 	public boolean checkAvailability(String date) {
 		for (Training training : trainings) {
@@ -49,6 +87,7 @@ public class Trainer {
 	}
 
 	public void checkSchedule() {
+		System.out.println("Date sustinere traininguri: ");
 		for (Training training : trainings) {
 			System.out.println(training.getEventDate());
 		}
