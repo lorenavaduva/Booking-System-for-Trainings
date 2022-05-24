@@ -99,4 +99,13 @@ public class Trainer {
 		}
 		return false;
 	}
+
+	public void modifyTrainingDetails(Training training, String newEventName, String newEventLocation, String newEventDate){
+		for(Training event : this.trainings){
+			if(event.getEventName().equals(training.getEventName()) && event.getEventType().equals(training.getEventType())
+				&& event.getEventDate().equals(training.getEventDate()) && event.getEventLocation().equals(training.getEventLocation())){
+				event.modifyTrainingDetails(newEventName, newEventLocation, newEventDate);
+			}
+		}
+	}
 }

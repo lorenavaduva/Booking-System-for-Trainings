@@ -35,15 +35,10 @@ public class Training {
 		System.out.println("La data de: " + this.eventDate + " locatia: " + this.eventLocation);
 	}
 
-
-	public void modifyTrainingDetails(String date, String location,) {
-		this.eventDate = date;
-		this.eventLocation = location;
-	}
-	private void modifyTrainingDetails(Training training, String newEventName, String newEventLocation, String newEventDate){
-		if(!newEventName.isEmpty()) training.setEventName(newEventName);
-		if(!newEventLocation.isEmpty()) training.setEventLocation(newEventLocation);
-		if(!newEventDate.isEmpty()) training.setEventDate(newEventDate);
+	public void modifyTrainingDetails(String newEventName, String newEventLocation, String newEventDate){
+		if(!newEventName.isEmpty()) this.eventName = newEventName;
+		if(!newEventLocation.isEmpty()) this.eventLocation = newEventLocation;
+		if(!newEventDate.isEmpty()) this.eventDate = newEventDate;
 	}
 
 	TrainingType getEventType(){

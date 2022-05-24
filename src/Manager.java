@@ -12,10 +12,11 @@ public class Manager {
 	public List<Trainer> trainers = new ArrayList<>();
 	public List<Client> clients = new ArrayList<>();
 
-	Manager(){}
+	Manager() {
+	}
 
-	public Manager(String managerName, String email, String phone){
-        this.managerName = managerName;
+	public Manager(String managerName, String email, String phone) {
+		this.managerName = managerName;
 		this.email = email;
 		this.phone = phone;
 	}
@@ -48,26 +49,27 @@ public class Manager {
 		return trainingList;
 	}
 
-	public void addTrainer(Trainer trainer){
+	public void addTrainer(Trainer trainer) {
 		trainers.add(trainer);
 	}
 
-	public void addClient(Client client){
+	public void addClient(Client client) {
 		clients.add(client);
 	}
 
 	public void contactInfo() {
 		System.out.println("-------Manager contact info-------\n");
-		System.out.println("Name: "+ managerName+"\n");
-		System.out.println("Email: "+ email+"\n");
-		System.out.println("Phone: "+ phone+"\n");
+		System.out.println("Name: " + managerName + "\n");
+		System.out.println("Email: " + email + "\n");
+		System.out.println("Phone: " + phone + "\n");
 
 	}
+
 	public void assignTrainer(Training training) {
 		//when assigning trainer you have to take into consideration the list of trainers already in the object manager
 		//and the training the client specified
 		boolean alocat = false;
-		if(!trainers.isEmpty() && (training.getEventType() == TrainingType.DataScience ||
+		if (!trainers.isEmpty() && (training.getEventType() == TrainingType.DataScience ||
 				training.getEventType() == TrainingType.DataTransfer ||
 				training.getEventType() == TrainingType.Leadership ||
 				training.getEventType() == TrainingType.MachineLearning ||
@@ -75,13 +77,13 @@ public class Manager {
 				training.getEventType() == TrainingType.QualityAssurance ||
 				training.getEventType() == TrainingType.Sales ||
 				training.getEventType() == TrainingType.WebDevelopment ||
-				training.getEventType() == TrainingType.WorkPlaceEthics)){
-			for(Trainer trainer : this.trainers){
-				if(trainer.checkAvailability(training.getEventDate()) && trainer.checkQualification(training.getEventType())){
+				training.getEventType() == TrainingType.WorkPlaceEthics)) {
+			for (Trainer trainer : this.trainers) {
+				if (trainer.checkAvailability(training.getEventDate()) && trainer.checkQualification(training.getEventType())) {
 					training.setTrainerName(trainer.getTrainerName());
 					trainingList.add(training);
-					for(Client client: this.clients){
-						if(client.getClientName().equals(training.getClientName())){
+					for (Client client : this.clients) {
+						if (client.getClientName().equals(training.getClientName())) {
 							client.addTraining(training);
 						}
 					}
@@ -89,22 +91,22 @@ public class Manager {
 					break;
 				}
 			}
-			if(alocat){
+			if (alocat) {
 				System.out.println("Trainer alocat");
-			}else System.out.println("Nu avem traineri pentru acest eveniment");
+			} else System.out.println("Nu avem traineri pentru acest eveniment");
 		}
 	}
 
 
 	public void cancelTraining(Training training) {
 		//remove training from the assigned trainer's list
-		trainers.forEach((trainer) ->{
-			if(Objects.equals(trainer.getTrainerName(), training.getTrainer())){
+		trainers.forEach((trainer) -> {
+			if (Objects.equals(trainer.getTrainerName(), training.getTrainer())) {
 				trainer.trainings.remove(training);
 			}
 		});
 		//remove training from clients list
-		clients.forEach((client)->{
+		clients.forEach((client) -> {
 			client.trainings.remove(training);
 		});
 
@@ -112,26 +114,12 @@ public class Manager {
 	}
 
 
-<<<<<<< HEAD
 	public void changeTrainingDetails(Training training, String newEventName, String newEventLocation, String newEventDate) {
 		//modify training from the assigned trainer's list
-		trainers.forEach((trainer) ->{
-			if(Objects.equals(trainer.getTrainerName(), training.getTrainer())){
-				trainer.trainings.forEach((trainerTraining) ->{
-
-				});
+		trainers.forEach((trainer) -> {
+			if (Objects.equals(trainer.getTrainerName(), training.getTrainer())) {
+				trainer.modifyTrainingDetails(training, newEventName, newEventLocation, newEventDate);
 			}
 		});
-		//remove training from clients list
-		clients.forEach((client)->{
-			client.trainings.remove(training);
-		});
-
-		trainingList.remove(training);
-=======
-	public void changeTrainingDetails(Training trainingName) {
-
 	}
-
-
 }
