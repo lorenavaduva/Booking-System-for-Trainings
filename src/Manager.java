@@ -8,7 +8,7 @@ public class Manager {
 	private String managerName;
 	private String email;
 	private String phone;
-	private final List<Training> trainingList = new ArrayList<>();
+	private List<Training> trainingList = new ArrayList<>();
 	public List<Trainer> trainers = new ArrayList<>();
 	public List<Client> clients = new ArrayList<>();
 
@@ -112,6 +112,22 @@ public class Manager {
 	}
 
 
-	public void changeTrainingDetails(Training trainingName) {
+	public void changeTrainingDetails(Training training, String newEventName, String newEventLocation, String newEventDate) {
+		//modify training from the assigned trainer's list
+		trainers.forEach((trainer) ->{
+			if(Objects.equals(trainer.getTrainerName(), training.getTrainer())){
+				trainer.trainings.forEach((trainerTraining) ->{
+
+				});
+			}
+		});
+		//remove training from clients list
+		clients.forEach((client)->{
+			client.trainings.remove(training);
+		});
+
+		trainingList.remove(training);
 	}
+
+
 }

@@ -86,7 +86,44 @@ public class Client{
 		this.trainings.add(training);
 	}
 
-	public void changeTrainingDetails(Training trainingName, String newDate, String newLocation) {
-		
+	public void changeTrainingDetails(Training training,Manager manager) {
+		String userInput = "";
+		Scanner getUserInput = new Scanner(System.in);
+		String newEventLocation = "";
+		String newEventName = "";
+		String newEventDate = "";
+		while(!userInput.equals("o")) {
+			System.out.println("Selecteaza actiune modificare:");
+			System.out.println("1 - Nume eveniment");
+			System.out.println("2 - Locatie eveniment");
+			System.out.println("3 - Data eveniment");
+			System.out.println("x - Close the app.");
+			userInput = getUserInput.nextLine();
+			switch(userInput) {
+				case "1":
+					System.out.println("Noul nume eveniment: ");
+					newEventName = userInput;
+					//training.setEventName(userInput);
+					System.out.println("Etapa a fost adaugata");
+					break;
+				case "2":
+					System.out.println("Noua locatie eveniment:");
+					newEventLocation = userInput;
+					//training.setEventLocation(userInput);
+					break;
+				case "3":
+					System.out.println("Noua data eveniment:");
+					newEventDate = userInput;
+					//training.setEventLocation(userInput);
+					break;
+				case "x":
+					break;
+				default:
+					System.out.println("Optiunea nu e disponibila.");
+					break;
+			}
+		}
+		manager.changeTrainingDetails(training, newEventName, newEventLocation, newEventDate);
+		getUserInput.close();
 	}
 }

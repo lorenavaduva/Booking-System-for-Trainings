@@ -36,9 +36,14 @@ public class Training {
 	}
 
 
-	public void modifyTrainingDetails(String date, String location) {
+	public void modifyTrainingDetails(String date, String location,) {
 		this.eventDate = date;
 		this.eventLocation = location;
+	}
+	private void modifyTrainingDetails(Training training, String newEventName, String newEventLocation, String newEventDate){
+		if(!newEventName.isEmpty()) training.setEventName(newEventName);
+		if(!newEventLocation.isEmpty()) training.setEventLocation(newEventLocation);
+		if(!newEventDate.isEmpty()) training.setEventDate(newEventDate);
 	}
 
 	TrainingType getEventType(){
