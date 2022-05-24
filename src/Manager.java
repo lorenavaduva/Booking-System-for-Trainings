@@ -112,6 +112,7 @@ public class Manager {
 	}
 
 
+<<<<<<< HEAD
 	public void changeTrainingDetails(Training training, String newEventName, String newEventLocation, String newEventDate) {
 		//modify training from the assigned trainer's list
 		trainers.forEach((trainer) ->{
@@ -127,6 +128,9 @@ public class Manager {
 		});
 
 		trainingList.remove(training);
+=======
+	public void changeTrainingDetails(Training trainingName) {
+
 	}
 
 
