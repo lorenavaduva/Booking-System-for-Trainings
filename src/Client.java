@@ -77,8 +77,8 @@ public class Client{
 	}
 
 
-	public void requestTraining( Manager manager,TrainingType trainingType, String trainingDate, String eventLocation, String eventName) {
-		Training requestedTraining = new Training(this.clientName, "", eventName, eventLocation,trainingDate, trainingType);
+	public void requestTraining(Manager manager,TrainingType trainingType, String trainingDate, String eventLocation, String eventName) {
+		Training requestedTraining = new Training(this.clientName, "", eventName, eventLocation, trainingDate, trainingType);
 		manager.assignTrainer(requestedTraining);
 	}
 
@@ -86,6 +86,7 @@ public class Client{
 		this.trainings.add(training);
 	}
 
-	public void changeTrainingDetails(Training trainingName) {
+	public void changeTrainingDetails(Training trainingName, String newDate, String newLocation) {
+		
 	}
 }
