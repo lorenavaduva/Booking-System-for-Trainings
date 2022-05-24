@@ -113,5 +113,6 @@ public class Manager {
 
 
 	public void changeTrainingDetails(Training trainingName) {
+
 	}
 }
