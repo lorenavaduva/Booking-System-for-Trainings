@@ -189,13 +189,5 @@ public class App {
             System.out.println(course.trainingDetails());
         }
 
-//        for (Training training : manager.getTrainingList()) {
-//            System.out.println(training.trainingDetails());
-//        }
-//
-//
-//        System.out.println(manager.getTrainingList().contains(training1));
-//        System.out.println(client1.getTrainings().get(0).trainingDetails());
-//        System.out.println(trainer1.getTrainings().contains(training1));
     }
 }
