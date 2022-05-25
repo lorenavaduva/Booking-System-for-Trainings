@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
+// Pantilimon Adrian-Gabriel
 
 class ManagerTest {
 
