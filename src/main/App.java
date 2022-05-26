@@ -76,7 +76,7 @@ public class App {
                 "Cluj",
                 "Aprofundare cunostinte MachineLearning");
         // Verificare ca trainingul a fost adaugat pentru manager,trainer si client
-        System.out.println("Lista ");
+        System.out.println("Lista traininguri dupa adaugare de catre clientul 2");
         System.out.println("\nTraining-urile clientului 2 sunt: \n");
         for (Training course: client2.getTrainings()) {
             System.out.println(course.trainingDetails());
@@ -90,7 +90,7 @@ public class App {
             System.out.println(course.trainingDetails());
         }
 
-        // Schimare detalii eveniment de catre client
+        // Schimbare detalii eveniment de catre client
         // Verificare ca trainingul a fost modificat pentru manager,trainer si client
         client2.changeTrainingDetails(client2.getTrainings().get(1),manager);
         System.out.println("\nListele de training dupa schimbare sunt:\n");
